@@ -2,7 +2,7 @@
 
 Selamat datang di repository portofolio saya. Saya adalah mahasiswa tingkat akhir Sistem Informasi di Institut Teknologi Del yang berfokus pada pemecahan masalah melalui analisis data yang mendalam dan rekayasa perangkat lunak yang efisien.
 
-Berikut adalah beberapa versi Curriculum Vitae (CV) saya yang menyoroti fokus dan bidang keahlian yang berbeda. Silakan lihat dan unduh melalui tautan di bawah ini:
+Berikut adalah beberapa versi Curriculum Vitae (CV) saya yang menyoroti fokus dan bidang keahlian yang berbeda:
 
 ---
 
@@ -10,8 +10,8 @@ Berikut adalah beberapa versi Curriculum Vitae (CV) saya yang menyoroti fokus da
 
 | Posisi / Peran | Fokus Utama & Keahlian | Tautan Akses Dokumen |
 | :--- | :--- | :--- |
-| **📊 Data Analyst / Business Intelligence** | Data Storytelling, Predictive Modeling (Ensemble), Data Visualization (Tableau, Streamlit), Python, SQL. | [📄 Lihat & Unduh CV Data Analyst (PDF)](CV_Chika_Situmorang_Data_Analyst.pdf) |
-| **💻 Web Developer / Software & AI Engineer** | Web Dev (Laravel, Blazor), C#/.NET (Dasar), Pengujian Sistem (Katalon QA), Fine-Tuning Model AI (PEFT/LoRA). | [📄 Lihat & Unduh CV Web Developer (PDF)](CV_Chika_Situmorang_Web_Developer.pdf) |
+| **📊 Data Analyst / Business Intelligence** | Data Storytelling, Predictive Modeling (Ensemble), Data Visualization (Tableau, Streamlit), Python, SQL. |
+| **💻 Web Developer / Software & AI Engineer** | Web Dev (Laravel, Blazor), C#/.NET (Dasar), Pengujian Sistem (Katalon QA), Fine-Tuning Model AI (PEFT/LoRA). |
 
 ---
 
