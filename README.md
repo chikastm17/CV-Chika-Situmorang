@@ -10,8 +10,8 @@ Berikut adalah beberapa versi Curriculum Vitae (CV) saya yang menyoroti fokus da
 
 | Posisi / Peran | Fokus Utama & Keahlian | Tautan Akses Dokumen |
 | :--- | :--- | :--- |
-| **📊 Data Analyst / Business Intelligence** | Data Storytelling, Predictive Modeling (Ensemble), Data Visualization (Tableau, Streamlit), Python, SQL. | [📄 Lihat & Unduh CV Data Analyst (PDF)](CV_Chika%20Situmorang_Data%20Analist.pdf) |
-| **💻 Web Developer / Software & AI Engineer** | Web Dev (Laravel, Blazor), C#/.NET (Dasar), Pengujian Sistem (Katalon QA), Fine-Tuning Model AI (PEFT/LoRA). | [📄 Lihat & Unduh CV Web Developer (PDF)](CV_Chika%20Situmorang_Web%20Developer.pdf) |
+| **📊 Data Analyst / Business Intelligence** | Data Storytelling, Predictive Modeling (Ensemble), Data Visualization (Tableau, Streamlit), Python, SQL. | [📄 Lihat & Unduh CV Data Analyst (PDF)](CV_Chika_Situmorang_Data_Analyst.pdf) |
+| **💻 Web Developer / Software & AI Engineer** | Web Dev (Laravel, Blazor), C#/.NET (Dasar), Pengujian Sistem (Katalon QA), Fine-Tuning Model AI (PEFT/LoRA). | [📄 Lihat & Unduh CV Web Developer (PDF)](CV_Chika_Situmorang_Web_Developer.pdf) |
 
 ---
 
