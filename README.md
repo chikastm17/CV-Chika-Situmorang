@@ -10,24 +10,25 @@ Berikut adalah beberapa versi Curriculum Vitae (CV) saya yang menyoroti fokus da
 
 | Posisi / Peran | Fokus Utama & Keahlian | Tautan Akses Dokumen |
 | :--- | :--- | :--- |
-| **📊 Data Analyst / Business Intelligence** | Visualisasi Data, *Data Storytelling*, Pemodelan Prediktif (*Machine Learning*), Tableau, Streamlit, SQL, Python. | [📄 Lihat & Unduh CV Data Analyst (PDF)](CV_Chika Situmorang_Data Analist.pdf) |
-| **💻 Web Developer / Software & AI Engineer** | Pengembangan Web (Laravel), Pengembangan Perangkat Lunak Terstruktur (C#/.NET), Pengujian Sistem (Katalon QA), *Fine-Tuning* Model AI (PEFT/LoRA). | [📄 Lihat & Unduh CV Web Dev & AI (PDF)](CV_Chika_Situmorang_WD.pdf) |
+| **📊 Data Analyst / Business Intelligence** | Data Storytelling, Predictive Modeling (Ensemble), Data Visualization (Tableau, Streamlit), Python, SQL. | [📄 Lihat & Unduh CV Data Analyst (PDF)](CV_Chika%20Situmorang_Data%20Analist.pdf) |
+| **💻 Web Developer / Software & AI Engineer** | Web Dev (Laravel, Blazor), C#/.NET (Dasar), Pengujian Sistem (Katalon QA), Fine-Tuning Model AI (PEFT/LoRA). | [📄 Lihat & Unduh CV Web Developer (PDF)](CV_Chika%20Situmorang_Web%20Developer.pdf) |
 
 ---
 
 ## 🛠️ Ringkasan Proyek Unggulan
 
-Berikut adalah beberapa proyek utama yang menunjukkan kompetensi teknis saya di kedua bidang tersebut:
+Berikut adalah beberapa proyek utama yang menunjukkan kompetensi teknis saya:
 
-### 🌟 Integrasi AI & Rekayasa Perangkat Lunak
+### 🌟 Rekayasa Perangkat Lunak & Integrasi AI
+* **SIM Radiologi AI (Sistem Pemrosesan Citra Medis Asinkron):** Mengembangkan *dashboard* interaktif menggunakan Blazor dan mengimplementasikan .NET *Background Service* untuk memproses antrean tugas berat ke peladen inferensi AI (MedGemma) secara asinkron tanpa memblokir antarmuka pengguna.
 * **Adaptive Fine-Tuning of Multimodal AI Models:** Melakukan *fine-tuning* model MedGemma menggunakan teknik PEFT berbasis LoRA untuk otomatisasi laporan radiologi dengan mengolah 4.000+ dataset lokal di lingkungan HPC.
-* **Aplikasi Web Manajemen (SiNe & Sistem Restoran):** Membangun platform manajemen data anggota dan sistem pemesanan berbasis web menggunakan *framework* Laravel, lengkap dengan pengujian fungsionalitas otomatis menggunakan Katalon.
-* **Eksplorasi OOP & Backend (.NET):** Mengembangkan aplikasi fundamental menggunakan C# dan .NET untuk memperdalam pemahaman mengenai struktur data dan manajemen *state*.
+* **Pengembangan Aplikasi Web (SiNe IT Del & Sistem Restoran):** Membangun platform manajemen dan sistem pemesanan menggunakan *framework* Laravel, merancang basis data relasional, dan melakukan pengujian otomatis menggunakan Katalon.
+* **Pengembangan Sistem Rekomendasi:** Membangun arsitektur sistem rekomendasi menggunakan metode *Matrix Factorization* melalui *Alternating Least Squares* (ALS) dan *Item-Based Collaborative Filtering* (IBCF) menggunakan Python.
 
 ### 📊 Analisis Data & Kecerdasan Bisnis
-* **Analisis Return on Investment (ROI) Kesehatan Global:** Memproses dataset kesehatan global dan menyusun narasi visual (*data storytelling*) untuk mengevaluasi tingkat pengembalian investasi.
-* **Integrasi Knowledge Graph Smart City:** Memanfaatkan konsep *Linked Data* dan *Knowledge Graph* bersama AI untuk memetakan dan menganalisis risiko bencana di wilayah Sumatera Utara.
-* **Analisis Prediksi Harga Rumah:** Membangun model regresi lanjut menggunakan algoritma *ensemble* (Random Forest, XGBoost, LightGBM) untuk mengoptimalkan akurasi prediksi harga.
+* **Analisis Return on Investment (ROI) Kesehatan Global:** Memproses dataset kesehatan global dan menyusun narasi visual (*data storytelling*) untuk mengevaluasi tingkat pengembalian investasi pada berbagai inisiatif kesehatan.
+* **Integrasi Knowledge Graph untuk Analisis Risiko Bencana:** Mengembangkan kerangka analisis risiko dengan mengintegrasikan konsep *Linked Data* dan *Knowledge Graph* bersama AI untuk memetakan hubungan data urban di Smart City Sumatera Utara.
+* **Analisis Prediksi Harga Rumah (Advanced Regression):** Membangun model prediksi harga menggunakan algoritma *ensemble* (Random Forest, XGBoost, dan LightGBM) serta melakukan *feature engineering* untuk meningkatkan akurasi.
 
 ---
 
