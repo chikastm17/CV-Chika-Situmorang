@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Profesional | Chika Situmorang</title>
+    <style>
+        /* --- CSS RESET & VARIABEL --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --primary-color: #0f766e; /* Teal Profesional */
+            --secondary-color: #1e293b; /* Dark Slate */
+            --text-color: #334155;
+            --bg-light: #f8fafc;
+            --bg-white: #ffffff;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* --- SIDEBAR KIRI (MENU STATIS DENGAN PERBAIKAN SCROLL) --- */
+        .sidebar {
+            width: 30%;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background-color: var(--bg-white);
+            border-right: 1px solid var(--border-color);
+            padding: 30px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 100;
+            overflow-y: auto; /* Memunculkan scroll internal jika menu meluap */
+        }
+
+        .profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--border-color);
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            flex-shrink: 0;
+        }
+
+        .sidebar h1 {
+            font-size: 20px;
+            color: var(--secondary-color);
+            margin-bottom: 6px;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        .sidebar .tagline {
+            font-size: 12px;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .nav-links {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-size: 14.5px;
+            font-weight: 500;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            background-color: var(--bg-light);
+            color: var(--primary-color);
+            padding-left: 18px;
+        }
+
+        /* Tombol Unduh CV Spesifik */
+        .cv-download-btn {
+            display: block;
+            width: 100%;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 8px;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+
+        .cv-download-btn:hover {
+            transform: translateY(-1px);
+            opacity: 0.9;
+        }
+
+        .sidebar-footer {
+            margin-top: 20px; /* Diubah dari auto ke static margin agar tidak menabrak tombol */
+            font-size: 12px;
+            color: #94a3b8;
+            text-align: center;
+            width: 100%;
+            line-height: 1.5;
+            flex-shrink: 0;
+        }
+
+        /* --- KONTEN KANAN (SCROLLABLE) --- */
+        .main-content {
+            width: 70%;
+            margin-left: 30%;
+            padding: 60px 50px;
+            background-color: var(--bg-light);
+        }
+
+        section {
+            margin-bottom: 60px;
+            padding-top: 10px;
+        }
+
+        .section-title {
+            font-size: 26px;
+            color: var(--secondary-color);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* --- TENTANG SAYA --- */
+        .hero-box {
+            background-color: var(--bg-white);
+            border-radius: 16px;
+            padding: 35px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .about-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .about-text p {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .info-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 10px;
+        }
+
+        .info-item {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .info-item strong {
+            color: var(--secondary-color);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .about-images-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .about-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* --- SKILLS GRID --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+        }
+
+        .skill-card h3 {
+            font-size: 16px;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .skill-card p {
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* --- PENGALAMAN KERJA TIMELINE --- */
+        .experience-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .experience-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .exp-title h3 {
+            font-size: 18px;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .exp-company {
+            font-size: 14.5px;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-top: 2px;
+        }
+
+        .exp-time {
+            font-size: 13px;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .experience-card ul {
+            padding-left: 20px;
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .experience-card li {
+            margin-bottom: 8px;
+            text-align: justify;
+        }
+
+        .cert-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 15px;
+            font-size: 13px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid var(--primary-color);
+            padding: 6px 14px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            background-color: transparent;
+        }
+
+        .cert-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* --- FILTER BUTTONS --- */
+        .filter-container {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .filter-btn {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            padding: 8px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.3s;
+            color: var(--text-color);
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        /* --- PROJECTS LAYOUT --- */
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .project-card h3 {
+            font-size: 18px;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .project-year {
+            font-size: 13px;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .project-card p {
+            font-size: 14.5px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        .single-project-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .sub-project-section {
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
+
+        .sub-project-section h4 {
+            font-size: 14px;
+            color: var(--secondary-color);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .image-grid-4 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .image-grid-4 img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background-color: #f1f5f9;
+            color: #475569;
+            font-size: 12px;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        /* --- CERTIFICATIONS LAYOUT --- */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 320px));
+            gap: 20px;
+        }
+
+        .cert-card {
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .cert-img {
+            width: 100%;
+            height: 160px;
+            object-fit: contain; 
+            background-color: #ffffff; 
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 12px;
+            padding: 5px; 
+        }
+
+        .cert-card h3 {
+            font-size: 16px;
+            color: var(--secondary-color);
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .cert-issuer {
+            font-size: 13.5px;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .cert-link {
+            margin-top: auto;
+            font-size: 13px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .cert-link:hover {
+            text-decoration: underline;
+        }
+
+        /* --- CONTACT LIST --- */
+        .contact-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-list li {
+            font-size: 15px;
+        }
+
+        .contact-list a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-list a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 992px) {
+            body {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 40px 20px;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+            .main-content {
+                width: 100%;
+                margin-left: 0;
+                padding: 40px 20px;
+            }
+            .nav-links {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            .about-images-grid, .image-grid-4, .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+            .sidebar-footer {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <img src="fotoprofil.jpeg" alt="Chika Situmorang" class="profile-img">
+        <h1>Chika Situmorang</h1>
+        <div class="tagline">Data Analyst &amp; Software Engineer</div>
+        
+        <div class="nav-links">
+            <a href="#about" class="active">Tentang Saya</a>
+            <a href="#skills">Keahlian</a>
+            <a href="#experience">Pengalaman Kerja</a>
+            <a href="#projects">Proyek Unggulan</a>
+            <a href="#certifications">Sertifikasi</a>
+            <a href="#contact">Kontak</a>
+            
+            <a href="CV_Chika_Situmorang_Data_Analist.pdf" target="_blank" class="cv-download-btn" style="background-color: var(--primary-color); color: white;">📄 Download CV Analyst</a>
+            <a href="CV_Chika_Situmorang_Web_Developer.pdf" target="_blank" class="cv-download-btn" style="background-color: var(--secondary-color); color: white;">📄 Download CV Developer</a>
+        </div>
+        
+        <div class="sidebar-footer">
+            S1 Sistem Informasi<br>
+            Institut Teknologi Del
+        </div>
+    </div>
+
+    <div class="main-content">
+        
+        <section id="about">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="hero-box">
+                <div class="about-layout">
+                    <div class="about-text">
+                        <p>Halo! Saya adalah mahasiswa tingkat akhir Sistem Informasi di Institut Teknologi Del, saya tertarik dalam dua bidang yaitu <strong>Analisis Data (Data Analytics)</strong> dan <strong>Rekayasa Perangkat Lunak (Software Engineering)</strong>.</p>
+                        
+                        <div class="info-card-grid">
+                            <div class="info-item">
+                                <strong>Institusi Kampus</strong>
+                                Institut Teknologi Del
+                            </div>
+                            <div class="info-item">
+                                <strong>Program Studi</strong>
+                                S1 Sistem Informasi
+                            </div>
+                            <div class="info-item">
+                                <strong>Indeks Prestasi Kumulatif</strong>
+                                IPK 3.36 / 4.00
+                            </div>
+                            <div class="info-item">
+                                <strong>Status Akademik</strong>
+                                Tingkat Akhir (Semester 8)
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="about-images-grid">
+                        <img src="tentang_saya1.jpeg" alt="Aktivitas Akademik 1" class="about-img">
+                        <img src="tentang_saya2.jpeg" alt="Aktivitas Akademik 2" class="about-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Keahlian Teknis</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Data Science &amp; Analytics</h3>
+                    <p>Python, SQL, Tableau, Streamlit, Predictive Modeling (Ensemble), Data Storytelling, Data Mining.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Software Development</h3>
+                    <p>Laravel (PHP), HTML, .NET 8 (C# dasar), Blazor Server, Java, Basis Data Relasional, RESTful API.</p>
+                </div>
+                <div class="skill-card">
+                    <h3>AI &amp; QA Testing</h3>
+                    <p>Multimodal AI, Fine-Tuning (PEFT/LoRA), Sistem Rekomendasi (ALS &amp; IBCF), Katalon Studio (Automated QA).</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Pengalaman Kerja</h2>
+            <div class="experience-timeline">
+                
+                <div class="experience-card">
+                    <div class="exp-header">
+                        <div class="exp-title">
+                            <h3>Product Analyst Intern</h3>
+                            <div class="exp-company">Zi.Care (PT Digital Medika Solusindo)</div>
+                        </div>
+                        <span class="exp-time">Juni — Agustus 2025</span>
+                    </div>
+                    <ul>
+                        <li>Berkontribusi dalam pengembangan produk teknologi kesehatan (*HealthTech*) dengan melakukan analisis kebutuhan pengguna (*user requirements*) dan memetakan specifications teknis fitur produk.</li>
+                        <li>Melakukan analisis data produk untuk mengidentifikasi tren penggunaan, performa sistem, serta metrik operasional penting.</li>
+                    </ul>
+                    
+                    <a href="https://drive.google.com/file/d/1-VkfLtSLj84OZElR8iv6qAOt-SFTgwrj/view?usp=sharing" target="_blank" class="cert-btn">📄 Lihat Sertifikat Magang</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Proyek Unggulan</h2>
+            
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterProjects('all')">Semua Proyek</button>
+                <button class="filter-btn" onclick="filterProjects('data')">Data Analytics</button>
+                <button class="filter-btn" onclick="filterProjects('dev')">Web &amp; AI Engineering</button>
+            </div>
+
+            <div class="projects-grid">
+                
+                <div class="project-card" data-category="dev">
+                    <div class="project-header">
+                        <h3>SIM Radiologi AI - Pemrosesan Asinkron</h3>
+                        <span class="project-year">2026</span>
+                    </div>
+                    <img src="proyek-radiologi.png" alt="Screenshot Antarmuka SIM Radiologi" class="single-project-img">
+                    <p>Mengembangkan dashboard interaktif menggunakan Blazor Server untuk pemantauan antrean gambar medis secara otomatis. Mengimplementasikan .NET Background Service sebagai pipa pemrosesan data latar belakang non-blocking.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">.NET 8</span>
+                        <span class="tech-tag">Blazor</span>
+                        <span class="tech-tag">Asynchronous</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="data">
+                    <div class="project-header">
+                        <h3>Analisis ROI Kesehatan Global</h3>
+                        <span class="project-year">2026</span>
+                    </div>
+                    <img src="Proyek_ROI.png" alt="Visualisasi Dasbor ROI Kesehatan" class="single-project-img">
+                    <p>Memproses dan menganalisis dataset kesehatan global makro untuk mengevaluasi tingkat pengembalian investasi (ROI) serta merancang narasi visual yang interaktif menggunakan Tableau dan Streamlit.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Tableau</span>
+                        <span class="tech-tag">Streamlit</span>
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Data Storytelling</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="dev">
+                    <div class="project-header">
+                        <h3>Aplikasi Web Manajemen SiNe &amp; Restoran</h3>
+                        <span class="project-year">2024</span>
+                    </div>
+                    <p>Membangun platform manajemen komprehensif menggunakan framework Laravel dengan arsitektur MVC, yang mencakup penanganan data fungsional dan pengujian ujung-ke-ujung menggunakan Katalon Studio.</p>
+                    
+                    <div class="sub-project-section">
+                        <h4>1. Sistem Informasi Anggota (SiNe IT Del) — [4 Screenshots]</h4>
+                        <div class="image-grid-4">
+                            <img src="sinet1.png" alt="SiNe Screenshot 1">
+                            <img src="sinet2.png" alt="SiNe Screenshot 2">
+                            <img src="sinet3.png" alt="SiNe Screenshot 3">
+                            <img src="sinet4.png" alt="SiNe Screenshot 4">
+                        </div>
+                    </div>
+
+                    <div class="sub-project-section">
+                        <h4>2. Sistem Pemesanan Restoran &amp; Katering — [4 Screenshots]</h4>
+                        <div class="image-grid-4">
+                            <img src="wita1.png" alt="Sistem Restoran Screenshot 1">
+                            <img src="wita2.png" alt="Sistem Restoran Screenshot 2">
+                            <img src="wita3.png" alt="Sistem Restoran Screenshot 3">
+                            <img src="wita4.png" alt="Sistem Restoran Screenshot 4">
+                        </div>
+                    </div>
+
+                    <div class="tech-tags">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">Laravel</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">Katalon Studio</span>
+                        <span class="tech-tag">QA Testing</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="dev">
+                    <div class="project-header">
+                        <h3>Adaptive Fine-Tuning Model Multimodal AI</h3>
+                        <span class="project-year">2025-2026</span>
+                    </div>
+                    <p>Melakukan fine-tuning model MedGemma menggunakan teknik PEFT berbasis LoRA untuk otomatisasi laporan radiologi dengan mengolah 4.000+ data citra medis di lingkungan High-Performance Computing (HPC).</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">MedGemma</span>
+                        <span class="tech-tag">PEFT/LoRA</span>
+                        <span class="tech-tag">HPC</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="data">
+                    <div class="project-header">
+                        <h3>Knowledge Graph Smart City Provinsi Sumut</h3>
+                        <span class="project-year">2025</span>
+                    </div>
+                    <p>Mengintegrasikan konsep Linked Data dan Knowledge Graph bersama komponen AI untuk memetakan serta menganalisis hubungan spasial risiko bencana urban secara mendalam.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Linked Data</span>
+                        <span class="tech-tag">Knowledge Graph</span>
+                        <span class="tech-tag">AI Integration</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="data">
+                    <div class="project-header">
+                        <h3>Analisis Prediksi Harga Rumah (Advanced Regression)</h3>
+                        <span class="project-year">2024</span>
+                    </div>
+                    <p>Membangun arsitektur model regresi prediktif memanfaatkan algoritma ensemble (Random Forest, XGBoost, LightGBM) disertai optimasi parameter fungsional.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Ensemble Learning</span>
+                        <span class="tech-tag">XGBoost</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="certifications">
+            <h2 class="section-title">Sertifikasi &amp; Penghargaan</h2>
+            <div class="certifications-grid">
+                
+                <div class="cert-card">
+                    <img src="sql_advanced.jpg" alt="Sertifikat HackerRank SQL Advanced" class="cert-img">
+                    <h3>SQL (Advanced)</h3>
+                    <div class="cert-issuer">HackerRank</div>
+                    
+                    <a href="https://www.hackerrank.com/certificates/iframe/74eb91ba6d4d" target="_blank" class="cert-link">🔗 Verifikasi Kredensial</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Hubungi Saya</h2>
+            <div class="hero-box">
+                <ul class="contact-list">
+                    <li>📧 Email: <a href="mailto:chikasitumorang004@gmail.com">chikasitumorang004@gmail.com</a></li>
+                    <li>💼 LinkedIn: <a href="https://linkedin.com/in/chika-situmorang" target="_blank">linkedin.com/in/chika-situmorang</a></li>
+                    <li>🐙 GitHub: <a href="https://github.com/chikastm17" target="_blank">github.com/chikastm17</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            if(event) {
+                event.target.classList.add('active');
+            }
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        const sections = document.querySelectorAll('section');
+        const navLi = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLi.forEach(a => {
+                a.classList.remove('active');
+                if (a.getAttribute('href').includes(current)) {
+                    a.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
