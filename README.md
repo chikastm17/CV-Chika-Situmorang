@@ -9,7 +9,7 @@ Berikut adalah beberapa versi Curriculum Vitae (CV) saya yang menyoroti fokus da
 ## 🎯 Pilihan Curriculum Vitae (CV)
 
 | Posisi / Peran | Fokus Utama & Keahlian |
-| :--- | :--- | :--- |
+| :--- | :--- |
 | **📊 Data Analyst / Business Intelligence** | Data Storytelling, Predictive Modeling (Ensemble), Data Visualization (Tableau, Streamlit), Python, SQL. |
 | **💻 Web Developer / Software & AI Engineer** | Web Dev (Laravel, Blazor), C#/.NET (Dasar), Pengujian Sistem (Katalon QA), Fine-Tuning Model AI (PEFT/LoRA). |
 
